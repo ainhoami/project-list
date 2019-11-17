@@ -1,1 +1,1 @@
-export { useUsers } from "../redux/ducks/users"
+export { useList } from "../redux/ducks/clist"

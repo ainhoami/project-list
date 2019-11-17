@@ -1,17 +1,24 @@
 import React from "react"
-import { useUsers } from "../hooks"
-
+import { useList } from "../hooks"
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import Main from "./Main"
+// import Left from "./Left"
+// import Right from "./Right"
+import Posts from "./Posts"
 function App() {
-  const { users } = useUsers()
+  const { titles } = useList()
 
-  console.log(users)
 
   return (
-    <div>
-      {users.map(user => (
-        <p key={user.id}>{user.name}</p>
-      ))}
-    </div>
+     <Router> 
+        {/* <Left /> */}
+        {/* <Main /> */}
+        {/* <Right/> */}
+        <Route path ="/" exact component={Main}/>
+
+      <Route path="/posts/:catitle/:catname" component={Posts}/>
+    </Router>
+
   )
 }
 
