@@ -7,6 +7,7 @@ const GET_PARENTS = "clist/GET_PARENTS"
 const GET_CATEGORIES = "clist/GET_CATEGORIES"
 const GET_POSTS = "clist/GET_POSTS"
 const SET_SUBCAT = "clist/SET_SUBCAT"
+const GET_CITY="clst/GET_CITY"
 
 
 // initial state
@@ -14,7 +15,8 @@ const initialState = {
   parents: [],
   categories: [],
   posts:[],
-  subcatg:""
+  subcatg:"",
+  city:"las-vegas"
 }
 
 // reducer
@@ -28,7 +30,9 @@ export default (state = initialState, action) => {
       return { ...state, posts: action.payload }
     case SET_SUBCAT:
       return { ...state, subcatg: action.payload }
-      
+    case GET_CITY:
+        return { ...state, city: action.payload }
+          
     default:
       return state
   }
@@ -78,6 +82,15 @@ function setSub(val) {
   }
 }
 
+function getCity(val) {
+  return dispatch =>{
+    dispatch ({
+    type: GET_CITY,
+    payload: val
+  })
+  }
+}
+
 
 // custom hooks
 export function useList() {
@@ -86,7 +99,9 @@ export function useList() {
   const categ =   useSelector(appState => appState.listState.categories)
   const post =   useSelector(appState => appState.listState.posts)
   const subcateg = useSelector(appState=>appState.listState.subcatg)
+  const selectedCity = useSelector(appState=>appState.listState.city)
   const subCat= val => dispatch(setSub(val))
+  const whatCity = val => dispatch(getCity(val))
 
 
   useEffect(() => {
@@ -97,5 +112,5 @@ export function useList() {
 
   
 
-  return { titles, categ, post, subCat, subcateg }
+  return { titles, categ, post, subCat, subcateg, selectedCity, whatCity }
 }
