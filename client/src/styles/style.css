@@ -10,13 +10,16 @@
     background-color: #eee;
     border:1px solid #ccc;
     color:blue;
+    text-align: center;
     margin:2px 0;
+    
 }
 .main{
     width:690px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;  
+    justify-content: space-between;
 
 }
 
@@ -84,6 +87,17 @@ background-color: #ccc;
     width:1200px;
 }
 
+.postpageContainer{
+    width:900px;
+    margin:auto;
+}
+
+.postPage{
+    display: flex;
+    flex-direction: column;
+    border:1px solid grey;
+    margin:10px 0;
+}
 .cities{
     font-size: 11px;
     list-style: none;
@@ -102,7 +116,7 @@ ul p{
 }
 
 .cityHeader p{
-width:676px;
+width:682px;
 height:30px;
 color:black;
 background-color: #eee;
@@ -117,4 +131,43 @@ font-size: 22px;
 
 .maincontainer{
     padding:0px;
+}
+
+.left p{
+    margin:auto;
+}
+.left>p:nth-child(2){
+    background-color: #ffc;
+    width:125px;
+}
+
+.linktopages{
+    margin:25px 0;
+    font-size: 12px;
+}
+.searchp{
+    margin:15px 0;
+    height:30px;
+    border-radius: 5px;
+    border:none;
+}
+
+.searchp::placeholder{
+    font-size: 16px;
+    padding-left: 3px;
+}
+
+.left:hover{
+    cursor: pointer;
+}
+
+.creapost{
+    display:flex;
+    flex-direction: column;
+    width:500px;
+    margin:auto;
+}
+
+.creapost textarea{
+    height:100px;
 }

@@ -6,7 +6,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use("/clist", userRouter)
+app.use("/clist/", userRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

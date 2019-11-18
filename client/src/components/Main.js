@@ -23,7 +23,7 @@ return (
                 
                     
                     {categ.filter(c=>c.parent_id==t.id).map(c =>(
-                        <div className="catList">
+                        <div key={"sk"+c.id}className="catList">
                        <Link to={`/posts/${t.name}/${c.slug}`}  className="catlink" onClick={e=>subCat(c.id)}> <p key={"kc" + c.id} className="catname">{c.name}</p></Link>
                         </div>
  

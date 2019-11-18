@@ -8,6 +8,8 @@ const GET_CATEGORIES = "clist/GET_CATEGORIES"
 const GET_POSTS = "clist/GET_POSTS"
 const SET_SUBCAT = "clist/SET_SUBCAT"
 const GET_CITY="clst/GET_CITY"
+const SET_POST="clst/SET_POST"
+
 
 
 // initial state
@@ -16,7 +18,8 @@ const initialState = {
   categories: [],
   posts:[],
   subcatg:"",
-  city:"las-vegas"
+  city:"las-vegas",
+  createpost:{}
 }
 
 // reducer
@@ -32,6 +35,10 @@ export default (state = initialState, action) => {
       return { ...state, subcatg: action.payload }
     case GET_CITY:
         return { ...state, city: action.payload }
+    case SET_POST:
+        return { ...state, createpost: action.payload }
+        
+    
           
     default:
       return state
@@ -92,6 +99,21 @@ function getCity(val) {
 }
 
 
+function dataToPost(formdata){
+
+  return dispatch => {
+    axios.post("/clist/createpost", {formdata}).then(resp => {
+      dispatch({
+        type: SET_POST,
+        payload: resp.data
+      })
+    })
+  }
+
+  
+}
+
+
 // custom hooks
 export function useList() {
   const dispatch = useDispatch()
@@ -103,7 +125,6 @@ export function useList() {
   const subCat= val => dispatch(setSub(val))
   const whatCity = val => dispatch(getCity(val))
 
-
   useEffect(() => {
     dispatch(getParents())
     dispatch(getCategories())
@@ -113,4 +134,16 @@ export function useList() {
   
 
   return { titles, categ, post, subCat, subcateg, selectedCity, whatCity }
+}
+
+
+export function useForm(){
+  const dispatch = useDispatch()
+  const creapost = useSelector(appState=>appState.listState.createpost)
+
+  const getDataToPost = formdata => dispatch(dataToPost(formdata))
+
+
+  return { getDataToPost, creapost }
+ 
 }
