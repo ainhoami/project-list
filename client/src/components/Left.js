@@ -22,17 +22,7 @@ return (
         <p>system status</p>
      </div>
 
-        {/* <p>Create a posting</p>    
-        <p>help, faq, abuse, legal<p>
-        <p>avoid scams fraud</p>
-        <p>personal safety tips</p>
-        <p>terms of use</p>
-        <p>privacy policy</p>
-        <p>system status</p>
-
-
-      <p>about craigslist</p> */}
-
+       
       </div>
 
     

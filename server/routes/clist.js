@@ -25,7 +25,7 @@ router.get("/categories", (req, res, next)=>{
 })
   router.get("/posts", (req, res, next)=>{
     const sql=`
-    SELECT id, title, picurl, category_id, date, description FROM posts`
+    SELECT id, title, category_id, date, description FROM posts`
 
     db.query(sql, (err,results,fields)=>{
       res.json(results)
@@ -34,16 +34,16 @@ router.get("/categories", (req, res, next)=>{
   })
 
 
+  //to a new js file
   router.post("/createpost", (req, res, next)=>{
     console.log(req.body + " req.body")
     const title=req.body.title
     const sql=`
-    INSERT INTO POSTS (title, picurl, category_id, date, description ) VALUES (?,?,?,?,?)`
+    INSERT INTO POSTS (title, category_id, date, description ) VALUES (?,?,?,?)`
 
-    db.query(sql, [title, req.body.picurl,req.body.category_id,req.body.date,req.body.description] ,(err,results,fields)=>{
+    db.query(sql, [title, req.body.category,req.body.date,req.body.description] ,(err,results,fields)=>{
       res.json(results)
     })
-    console.log(req.body + " req.body")
 
   })
 

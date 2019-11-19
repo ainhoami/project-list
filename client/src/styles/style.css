@@ -95,9 +95,12 @@ background-color: #ccc;
 .postPage{
     display: flex;
     flex-direction: column;
-    border:1px solid grey;
-    margin:10px 0;
 }
+
+.postPage p{
+    margin: 2px;
+}
+
 .cities{
     font-size: 11px;
     list-style: none;
@@ -164,10 +167,86 @@ font-size: 22px;
 .creapost{
     display:flex;
     flex-direction: column;
-    width:500px;
+    width:750px;
     margin:auto;
 }
 
 .creapost textarea{
-    height:100px;
+    height:150px;
+    font-size: 16px;
+
+}
+
+.creapost button{
+    height: 40px;
+    font-size: 20px;
+    margin-top: 10px;;
+}
+
+.dropdownCat{
+    display:flex;
+    flex-direction: column;
+    width:750px;
+    margin:10px auto 40px auto;
+}
+.dropdownCat select{
+    height:40px;
+    font-size: 17px;
+    margin-bottom: 10px;
+
+}
+
+.dropdownCat .subcatOpt{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.dropdownCat label{
+    font-size: 15px;;
+    margin:3px ;
+    width:225px;
+    max-height:220px ;
+}
+
+.dropdownCat input{
+    margin-left: 7px;
+}
+
+.creapost label{
+    margin:10px 0;
+}
+.creapost input{
+    height:30px;
+    font-size: 16px;
+}
+
+.fieldreq{
+    color:red;
+}
+
+
+.createPostContainer h1{
+width:750px;
+color:blue;
+margin: auto;
+}
+
+.postpageContainer h1{
+color: blue;
+}
+
+.postdesc, .titleonpost{
+    font-weight: bold;
+}
+
+p.postdesc{
+    margin-top: 20px;
+}
+
+.onePostContainer{
+    width:700px;
+    margin:auto;
+
 }
